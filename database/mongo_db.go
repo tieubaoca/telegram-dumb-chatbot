@@ -43,7 +43,7 @@ func NewMongoDatabase(connectionString string) (Database, error) {
 	}, nil
 }
 
-func (mdb *mongoDatabase) SaveMessage(chatId string, from string, message string) error {
+func (mdb *mongoDatabase) SaveMessage(chatId int64, from int64, message string) error {
 	messageInstance := types.Message{
 		ChatId:  chatId,
 		From:    from,
@@ -54,7 +54,7 @@ func (mdb *mongoDatabase) SaveMessage(chatId string, from string, message string
 	return err
 }
 
-func (mdb *mongoDatabase) PaginateMessages(chatId string, page int, limit int) ([]types.Message, error) {
+func (mdb *mongoDatabase) PaginateMessages(chatId int64, page int, limit int) ([]types.Message, error) {
 	var messages []types.Message
 	findOptions := options.Find()
 	findOptions.SetSkip(int64((page - 1) * limit))
