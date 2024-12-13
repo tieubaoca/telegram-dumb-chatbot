@@ -1,0 +1,6 @@
+port: 8080
+log_file: "app.log"
+error_file: "error.log"
+webhook_url: "https://example.com/webhook"
+llm_endpoint: ""
+sd_endpoint: ""
